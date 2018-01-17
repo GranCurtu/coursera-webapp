@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bk_bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+      /*here are my styles*/
+      /*if you want the input box appear at the start comment the line below*/
+      .none{border-width: 0px;}
+      .danger {color:red; border-style: solid; border-color: red; padding-left: 3px}
+      .success { color: green; border-style: solid; border-color: green; padding-left: 3px}
+
+    </style>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchSizeController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <!--CONSIDERATION: I don't consider empty/whitespace as lunch objects.
+              i.e. ", ,   , " is consider as empty and i.e. "some, ,thing, good" will display 'Enjoi!'-->
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-model="lunch"
+             >
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="displayMessage()">Check If Too Much</button>
+         </div>
+         <div class="form-group message">
+             <input class="form-group-sm {{messageStyle}}" ng-model="message"></input>
+         </div>
+   </div>
+
+</body>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</html>
